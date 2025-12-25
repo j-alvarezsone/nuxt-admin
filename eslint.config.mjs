@@ -10,5 +10,7 @@ export default withNuxt({
         order: ['script', 'template', 'style'],
       },
     ],
+    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
+    'no-trailing-spaces': 'error',
   },
 });
