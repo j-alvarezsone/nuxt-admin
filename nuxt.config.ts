@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui'],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui', '@nuxt/fonts'],
   css: ['~/assets/css/main.css'],
   app: {
     head: {
@@ -21,5 +21,15 @@ export default defineNuxtConfig({
       ignore: ['/dashboard', '/dashboard/**'],
       crawlLinks: true,
     },
+  },
+  fonts: {
+    families: [
+      {
+        name: 'Roboto',
+        provider: 'google',
+        weights: [400, 500, 700, 900],
+        display: 'swap',
+      },
+    ],
   },
 });
