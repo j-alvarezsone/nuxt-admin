@@ -1,6 +1,6 @@
 {
   "prettier.enable": false,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never"
@@ -8,22 +8,20 @@
   "editor.defaultFormatter": "Vue.volar",
   "eslint.codeActionsOnSave.mode": "all",
   "eslint.lintTask.enable": true,
-  {
-    "files.associations": {
-      "*.css": "tailwindcss"
-    },
-    "editor.quickSuggestions": {
-      "strings": "on"
-    },
-    "tailwindCSS.classAttributes": [
-      "class",
-      "ui"
-    ],
-    "tailwindCSS.experimental.classRegex": [
-      [
-        "ui:\\s*{([^)]*)\\s*}",
-        "(?:'|\"|`)([^']*)(?:'|\"|`)"
-      ]
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "ui"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "ui:\\s*{([^)]*)\\s*}",
+      "(?:'|\"|`)([^']*)(?:'|\"|`)"
     ]
-  }
+  ]
 }
