@@ -23,5 +23,7 @@
       "ui:\\s*{([^)]*)\\s*}",
       "(?:'|\"|`)([^']*)(?:'|\"|`)"
     ]
-  ]
+  ],
+  "vue.format.wrapAttributes": "force-expand-multiline",
+  "html.format.wrapAttributes": "force-expand-multiline",
 }
