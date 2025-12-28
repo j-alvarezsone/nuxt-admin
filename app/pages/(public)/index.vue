@@ -3,5 +3,10 @@
 </script>
 
 <template>
-  <HomeCTA />
+  <div class="flex flex-col gap-6">
+    <HomeCTA />
+    <HomeFeatures />
+    <HomeTestimonials />
+    <HomeStack />
+  </div>
 </template>
