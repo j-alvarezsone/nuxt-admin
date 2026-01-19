@@ -1,107 +1,107 @@
 export const siteReviews = [
   {
-    name: 'Carlos Ramírez',
-    subtitle: 'CEO de TechSolutions',
+    name: 'Carlos Ramirez',
+    subtitle: 'CEO at TechSolutions',
     profileImage: 'https://randomuser.me/api/portraits/men/10.jpg',
     description:
-      'Excelente consultoría, resolvieron mis dudas y mejoraron mis procesos tecnológicos.',
+      'Excellent consulting service, they solved my questions and improved our technology processes.',
   },
   {
-    name: 'Mariana López',
+    name: 'Mariana Lopez',
     subtitle: 'Software Developer',
     profileImage: 'https://randomuser.me/api/portraits/women/11.jpg',
     description:
-      'Gran equipo profesional, muy satisfechos con la calidad del servicio.',
+      'Great professional team, very satisfied with the service quality.',
   },
   {
-    name: 'Sofía García',
-    subtitle: 'CTO de InnovateLab',
+    name: 'Sofia Garcia',
+    subtitle: 'CTO at InnovateLab',
     profileImage: 'https://randomuser.me/api/portraits/women/12.jpg',
     description:
-      'Recibimos asesoría personalizada y nos ayudaron a optimizar nuestro software.',
+      'We received personalized advice and they helped us optimize our software.',
   },
   {
-    name: 'Luis Fernández',
+    name: 'Luis Fernandez',
     subtitle: 'Product Manager',
     profileImage: 'https://randomuser.me/api/portraits/men/13.jpg',
     description:
-      'Muy recomendados, rápidos y eficientes en la entrega de soluciones.',
+      'Highly recommended, fast and efficient in delivering solutions.',
   },
   {
     name: 'Ana Torres',
-    subtitle: 'Fundadora de DigitalFlow',
+    subtitle: 'Founder at DigitalFlow',
     profileImage: 'https://randomuser.me/api/portraits/women/14.jpg',
     description:
-      'Atención al cliente de primera y resultados sobresalientes en nuestro proyecto.',
+      'First-class customer service and outstanding results on our project.',
   },
   {
     name: 'Javier Morales',
     subtitle: 'Senior Full Stack Developer',
     profileImage: 'https://randomuser.me/api/portraits/men/15.jpg',
     description:
-      'El equipo superó nuestras expectativas, excelente trato humano y profesionalidad.',
+      'The team exceeded our expectations, excellent human treatment and professionalism.',
   },
   {
     name: 'Camila Castillo',
-    subtitle: 'Directora de Tecnología',
+    subtitle: 'Director of Technology',
     profileImage: 'https://randomuser.me/api/portraits/women/16.jpg',
     description:
-      'Nos guiaron en todo momento y resolvieron los problemas de nuestro sistema.',
+      'They guided us every step of the way and solved our system problems.',
   },
   {
     name: 'Diego Herrera',
     subtitle: 'Tech Lead',
     profileImage: 'https://randomuser.me/api/portraits/men/17.jpg',
     description:
-      'Muy buen servicio y recomendaciones precisas para desarrollar nuestro software.',
+      'Very good service and precise recommendations for developing our software.',
   },
   {
     name: 'Paula Mendoza',
     subtitle: 'DevOps Engineer',
     profileImage: 'https://randomuser.me/api/portraits/women/18.jpg',
     description:
-      'Profesionales, atentos y siempre disponibles para aclarar cualquier consulta.',
+      'Professional, attentive and always available to clarify any questions.',
   },
   {
-    name: 'Miguel Sánchez',
-    subtitle: 'CEO de StartupHub',
+    name: 'Miguel Sanchez',
+    subtitle: 'CEO at StartupHub',
     profileImage: 'https://randomuser.me/api/portraits/men/19.jpg',
     description:
-      'Confío plenamente en su experiencia, la consultoría mejoró nuestros procesos.',
+      'I fully trust their expertise, the consulting improved our processes.',
   },
   {
-    name: 'Valentina Ríos',
+    name: 'Valentina Rios',
     subtitle: 'Frontend Developer',
     profileImage: 'https://randomuser.me/api/portraits/women/20.jpg',
     description:
-      'La implementación fue rápida y sin inconvenientes, súper satisfechos con el resultado.',
+      'The implementation was fast and without issues, super satisfied with the result.',
   },
   {
-    name: 'Fernando Gómez',
+    name: 'Fernando Gomez',
     subtitle: 'Backend Developer',
     profileImage: 'https://randomuser.me/api/portraits/men/21.jpg',
     description:
-      'Excelente atención y seguimiento durante todo el proyecto. ¡Muy recomendable!',
+      'Excellent attention and follow-up throughout the entire project. Highly recommended!',
   },
   {
-    name: 'Mariana Ramírez',
-    subtitle: 'Directora de Operaciones',
+    name: 'Mariana Ramirez',
+    subtitle: 'Director of Operations',
     profileImage: 'https://randomuser.me/api/portraits/women/22.jpg',
     description:
-      'Nos ayudaron a digitalizar procesos internos y ahora trabajamos mucho más eficiente.',
+      'They helped us digitize internal processes and now we work much more efficiently.',
   },
   {
     name: 'Ramiro Silva',
     subtitle: 'IT Manager',
     profileImage: 'https://randomuser.me/api/portraits/men/23.jpg',
     description:
-      'El resultado superó nuestras expectativas. El equipo se adapta muy bien a las necesidades.',
+      'The result exceeded our expectations. The team adapts very well to our needs.',
   },
   {
-    name: 'Lucía Ortega',
+    name: 'Lucia Ortega',
     subtitle: 'UX/UI Designer',
     profileImage: 'https://randomuser.me/api/portraits/women/24.jpg',
     description:
-      'Todo perfecto de principio a fin. Sin duda volveríamos a trabajar con ellos.',
+      'Everything perfect from start to finish. We would definitely work with them again.',
   },
 ];
