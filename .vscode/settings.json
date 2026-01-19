@@ -25,4 +25,7 @@
     ]
   ],
   "html.format.wrapAttributes": "force-expand-multiline",
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
 }
