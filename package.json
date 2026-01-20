@@ -9,7 +9,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "seed": "prisma db seed"
+    "seed": "prisma db seed",
+    "prisma-generate": "prisma generate"
   },
   "dependencies": {
     "@nuxt/eslint": "1.12.1",
