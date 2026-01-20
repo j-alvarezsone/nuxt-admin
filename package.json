@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "prisma migrate dev && nuxt dev",
+    "dev": "nuxt dev",
+    "migrate": "node ./scripts/migrate.js",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
