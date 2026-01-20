@@ -92,4 +92,13 @@ if (r.error) {
 }
 if (r.status !== 0) process.exit(r.status);
 
-if (verbose) process.stdout.write('Migration complete.\n');
+// Regenerate Prisma Client so types/clients are up to date after migration
+if (verbose) process.stdout.write('Running prisma generate to refresh client...\n');
+const gen = spawnSync('pnpm', ['exec', 'prisma', 'generate'], { stdio: 'inherit' });
+if (gen.error) {
+  process.stderr.write(`Failed to run prisma generate: ${gen.error}\n`);
+  process.exit(1);
+}
+if (gen.status !== 0) process.exit(gen.status);
+
+if (verbose) process.stdout.write('Migration complete and Prisma client regenerated.\n');
