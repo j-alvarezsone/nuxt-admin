@@ -1,75 +1,13 @@
-# Nuxt Minimal Starter
+# My website with Nuxt
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Development
 
-## Setup
+1. Clone the repository
+2. Install dependencies with `pnpm install`
+3. Copy the `.env.template` file to `.env` and configure the required environment variables
 
-Make sure to install dependencies:
+   - Note: If you are using a managed database (Neon/Heroku/etc.), make sure your connection string includes `?sslmode=verify-full` to enforce TLS certificate verification. For local development you may use `sslmode=disable`, but never use that in production.
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+4. Run `npx prisma migrate dev` to apply database migrations
+5. Run the seed with `pnpm seed`
+6. Start the development server with `pnpm dev`
