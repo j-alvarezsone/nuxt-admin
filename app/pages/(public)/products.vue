@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { products, total, currentPage, perPage } = await usePaginatedProducts()
+  const { products, total, perPage } = await usePaginatedProducts()
 </script>
 
 <template>
@@ -25,7 +25,6 @@
 
     <SharedPagination
       :total
-      :model-value="currentPage"
       :per-page="perPage"
     />
   </div>
