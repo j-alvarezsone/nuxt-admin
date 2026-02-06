@@ -1,75 +1,11 @@
 <script setup lang="ts">
   const route = useRoute();
   const slug = route.params.slug as string;
-  // Simulated products - in production these would come from an API
-  const products = ref < Product[] > ([
-    {
-      id: '1',
-      slug: 'cloud-storage-saas',
-      name: 'Cloud Storage Pro',
-      description:
-        'Secure and scalable cloud storage service for businesses of all sizes.',
-      price: 100,
-      images: [
-        'https://picsum.photos/600/400?random=1',
-        'https://picsum.photos/600/400?random=2',
-        'https://picsum.photos/600/400?random=3',
-      ],
-      tags: ['cloud', 'storage', 'SaaS', 'security'],
-    },
-    {
-      id: '2',
-      slug: 'managed-it-services',
-      name: 'IT Support 24/7',
-      description:
-        'Technical support and comprehensive IT infrastructure management, available 24/7.',
-      price: 200,
-      images: [
-        'https://picsum.photos/600/400?random=4',
-        'https://picsum.photos/600/400?random=5',
-        'https://picsum.photos/600/400?random=6',
-      ],
-      tags: ['support', 'infrastructure', 'IT', 'business'],
-    },
-    {
-      id: '3',
-      slug: 'cybersecurity-suite',
-      name: 'CyberSecurity Suite',
-      description:
-        'Complete cybersecurity solution with advanced threat protection, firewall, and vulnerability scanning.',
-      price: 300,
-      images: [
-        'https://picsum.photos/600/400?random=7',
-        'https://picsum.photos/600/400?random=8',
-        'https://picsum.photos/600/400?random=9',
-      ],
-      tags: ['cybersecurity', 'firewall', 'protection', 'vulnerability'],
-    },
-    {
-      id: '4',
-      slug: 'ai-chatbot-platform',
-      name: 'AI Chatbot Platform',
-      description:
-        'Intelligent platform for building and managing AI-powered chatbots for customer support.',
-      price: 400,
-      images: [
-        'https://picsum.photos/600/400?random=10',
-        'https://picsum.photos/600/400?random=11',
-        'https://picsum.photos/600/400?random=12',
-      ],
-      tags: ['AI', 'chatbot', 'automation', 'customer service'],
-    },
-  ]);
-  // Find the product by slug (id in this case)
-  const product = computed(() => {
-    return products.value.find((p) => p.slug === slug);
-  });
-  // If the product is not found, throw a 404 error
+
+  const { data: product } = await useProduct(slug)
+
   if (!product.value) {
-    throw createError({
-      statusCode: 404,
-      statusMessage: 'Product not found',
-    });
+    navigateTo('/404');
   }
   // State for the selected image
   const selectedImageIndex = ref(0);
@@ -123,8 +59,8 @@
             :key="index"
             class="rounded-lg overflow-hidden border-2 transition-all cursor-pointer"
             :class="selectedImageIndex === index
-                ? 'border-primary-500'
-                : 'border-gray-200 hover:border-gray-300'
+              ? 'border-primary-500'
+              : 'border-gray-200 hover:border-gray-300'
               "
             @click="selectedImageIndex = index"
           >
@@ -236,9 +172,9 @@
       <h2 class="text-2xl font-bold text-gray-900 mb-6">
         Related Products
       </h2>
-      <LazyProductsGrid
+      <LazyProductsSuggestions
         hydrate-on-visible
-        :products="products.filter((p) => p.id !== product?.id).slice(0, 3)"
+        :slug
       />
     </div>
   </div>
