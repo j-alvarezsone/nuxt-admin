@@ -22,6 +22,11 @@ export default defineNuxtConfig({
       crawlLinks: true,
     },
   },
+  runtimeConfig: {
+    public: {
+      stage: process.env.STAGE || 'dev',
+    }
+  },
   fonts: {
     families: [
       {
