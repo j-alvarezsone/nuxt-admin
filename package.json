@@ -19,6 +19,7 @@
     "@nuxt/ui": "4.3.0",
     "@prisma/adapter-pg": "^7.2.0",
     "@prisma/client": "^7.2.0",
+    "bcryptjs": "^3.0.3",
     "eslint": "^9.39.2",
     "nuxt": "^4.2.2",
     "pg": "^8.17.1",
@@ -29,6 +30,8 @@
     "zod": "^4.2.1"
   },
   "devDependencies": {
+    "@types/node": "^25.2.1",
+    "dotenv": "^17.2.4",
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.2"
   }
