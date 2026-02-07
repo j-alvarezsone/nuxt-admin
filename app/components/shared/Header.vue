@@ -2,7 +2,7 @@
   import type { NavigationMenuItem } from '@nuxt/ui'
 
   const route = useRoute()
-  const { isLoggedIn, logout } = useAuthentication()
+  const { isLoggedIn, logout, isAdmin } = useAuthentication()
 
   const items = computed<NavigationMenuItem[]>(() => [{
     label: 'Products',
@@ -25,7 +25,6 @@
     icon: 'i-lucide-rocket',
     to: '/contact',
     active: route.path.startsWith('/contact')
-
   }])
 
   const responsiveRef = computed<NavigationMenuItem[]>(() => [
@@ -46,6 +45,18 @@
     </template>
 
     <UNavigationMenu :items="items" />
+
+    <ClientOnly>
+      <UNavigationMenu
+        v-if="isAdmin"
+        :items="[
+          {
+            label: 'Dashboard',
+            to: '/dashboard',
+          },
+        ]"
+      />
+    </ClientOnly>
 
     <template #right>
       <UColorModeButton />
