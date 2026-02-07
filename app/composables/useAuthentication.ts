@@ -1,3 +1,4 @@
+import { userRoles } from '../../shared/constants/role';
 
 export function useAuthentication() {
   const { loggedIn, session, user, clear, fetch: refreshSession } = useUserSession()
@@ -64,6 +65,7 @@ export function useAuthentication() {
 
   return {
     isLoggedIn: loggedIn,
+    isAdmin: computed(() => user.value?.roles.includes(userRoles.ADMIN)),
     session,
     user,
     refreshSession,

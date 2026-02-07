@@ -34,7 +34,8 @@ export default defineEventHandler(async (event) => {
   } as const
 
   await setUserSession(event, {
-    user: userSessions
+    user: userSessions,
+    loggedInAt: new Date()
   })
 
   if(!isPasswordValid) {
