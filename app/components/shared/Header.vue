@@ -2,6 +2,7 @@
   import type { NavigationMenuItem } from '@nuxt/ui'
 
   const route = useRoute()
+  const { isLoggedIn, logout } = useAuthentication()
 
   const items = computed<NavigationMenuItem[]>(() => [{
     label: 'Products',
@@ -49,14 +50,44 @@
     <template #right>
       <UColorModeButton />
 
-      <UTooltip text="Open on GitHub" :kbds="['meta', 'G']">
-        <UButton color="neutral" variant="ghost" to="https://github.com/nuxt/ui" target="_blank" icon="i-simple-icons-github" aria-label="GitHub" />
+      <UTooltip
+        text="Open on GitHub"
+        :kbds="['meta', 'G']"
+      >
+        <UButton
+          color="neutral"
+          variant="ghost"
+          to="https://github.com/nuxt/ui"
+          target="_blank"
+          icon="i-simple-icons-github"
+          aria-label="GitHub"
+        />
       </UTooltip>
-      <UButton color="primary" variant="solid" icon="i-heroicons-user-circle" to="/login" label="Login" />
+      <ClientOnly>
+        <UButton
+          v-if="!isLoggedIn"
+          color="primary"
+          variant="solid"
+          icon="i-heroicons-user-circle"
+          to="/login"
+          label="Login"
+        />
+        <UButton
+          v-else
+          variant="ghost"
+          icon="i-heroicons-user-circle"
+          label="Logout"
+          @click="logout"
+        />
+      </ClientOnly>
     </template>
 
     <template #body>
-      <UNavigationMenu :items="responsiveRef" orientation="vertical" class="-mx-2.5" />
+      <UNavigationMenu
+        :items="responsiveRef"
+        orientation="vertical"
+        class="-mx-2.5"
+      />
     </template>
   </UHeader>
 </template>

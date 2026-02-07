@@ -7,6 +7,13 @@
   })
 
   const toast = useToast()
+  const cookieLoginEmail = useCookie<string | null>('login_email', {
+    sameSite: 'strict',
+    maxAge: 60 * 60 * 24 * 30
+  })
+
+  const { login } = useAuthentication()
+  const isPosting = ref<boolean>(false)
 
   const fields: AuthFormField[] = [
     {
@@ -14,7 +21,8 @@
       type: 'email',
       label: 'Email',
       placeholder: 'Enter your email',
-      required: true
+      required: true,
+      defaultValue: cookieLoginEmail.value || undefined
     },
     {
       name: 'password',
@@ -26,7 +34,8 @@
     {
       name: 'remember',
       label: 'Remember me',
-      type: 'checkbox'
+      type: 'checkbox',
+      defaultValue: !!cookieLoginEmail.value
     }
   ]
 
@@ -46,22 +55,52 @@
 
   const schema = z.object({
     email: z.email('Invalid email'),
-    password: z.string('Password is required').min(8, 'Must be at least 8 characters')
+    password: z.string('Password is required').min(8, 'Must be at least 8 characters'),
+    remember: z.boolean().optional()
   })
 
   type Schema = z.output<typeof schema>
 
-  function onSubmit(payload: FormSubmitEvent<Schema>) {
-    console.log('Submitted', payload)
+  async function onSubmit(payload: FormSubmitEvent<Schema>) {
+    const { email, password, remember } = payload.data
+    isPosting.value = true
+
+    if(remember) {
+      cookieLoginEmail.value = email
+    } else {
+      cookieLoginEmail.value = null
+    }
+
+    const result = await login(email, password)
+
+    if(!result.success) {
+      toast.add({ title: 'Login failed', description: result.message,})
+    }
+
+    isPosting.value = false
   }
 </script>
 
 <template>
   <div class="flex flex-col items-center justify-center gap-4 p-4">
     <UPageCard class="w-full max-w-md">
-      <UAuthForm :schema title="Login" description="Enter your credentials to access your account." icon="i-lucide-user" :fields :providers @submit="onSubmit" />
+      <UAuthForm
+        :schema
+        title="Login"
+        description="Enter your credentials to access your account."
+        icon="i-lucide-user"
+        :fields
+        :providers
+        :loading="isPosting"
+        :disabled="isPosting"
+        @submit="onSubmit"
+      />
     </UPageCard>
 
-    <UButton variant="link" to="/register" label="Don't have an account? Register" />
+    <UButton
+      variant="link"
+      to="/register"
+      label="Don't have an account? Register"
+    />
   </div>
 </template>
