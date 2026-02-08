@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import * as z from 'zod'
   import type { FormSubmitEvent, AuthFormField } from '@nuxt/ui'
+  import { passwordSchema } from '~~/shared/schemas/auth'
 
   interface CookieRegisterDetails {
     name: string
@@ -56,7 +57,7 @@
   const schema = z.object({
     name: z.string('Name is required').min(3, 'Must be at least 3 characters'),
     email: z.email('Invalid email'),
-    password: z.string('Password is required').min(8, 'Must be at least 8 characters'),
+    password: passwordSchema,
     remember: z.boolean().optional()
   })
 
