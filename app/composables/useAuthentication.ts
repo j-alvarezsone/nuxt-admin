@@ -15,7 +15,7 @@ export function useAuthentication() {
         })
 
         await refreshSession()
-        navigateTo('/?message=Login successful')
+        navigateTo('/')
 
         return {
           success: true,
@@ -46,7 +46,7 @@ export function useAuthentication() {
           }
         })
 
-        navigateTo('/?message=Registration successful, please log in')
+        navigateTo('/')
 
         return true
       },
