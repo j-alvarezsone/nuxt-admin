@@ -12,6 +12,8 @@
     sameSite: 'strict',
     maxAge: 60 * 60 * 24 * 30
   })
+  const route = useRoute()
+  const email = route.query?.email as string | undefined
 
   const { login } = useAuthentication()
   const isPosting = ref<boolean>(false)
@@ -23,7 +25,7 @@
       label: 'Email',
       placeholder: 'Enter your email',
       required: true,
-      defaultValue: cookieLoginEmail.value || undefined
+      defaultValue: email || cookieLoginEmail.value || undefined
     },
     {
       name: 'password',

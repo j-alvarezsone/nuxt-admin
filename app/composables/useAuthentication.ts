@@ -30,31 +30,36 @@ export function useAuthentication() {
           status
         }
       },
-      failureMessage: 'Login failed'
     })
   }
 
-  const register = async (fullName: string, email: string, password: string) => {
-    await tryPromise({
+  const register = async (name: string, email: string, password: string) => {
+    return await tryPromise({
       onSuccess: async () => {
         await $fetch('/api/auth/register', {
           method: 'POST',
           body: {
-            fullName,
+            name,
             email,
             password
           }
         })
 
-        navigateTo('/')
+        navigateTo(`/login?email=${encodeURIComponent(email)}`)
 
-        return true
+        return {
+          success: true,
+          message: 'Registration successful'
+        }
       },
-      onError: (e) => {
-        console.error(e)
-        return false
+      onError: ({ error, status }) => {
+        console.error(error)
+        return {
+          success: false,
+          message: 'Registration failed',
+          status
+        }
       },
-      failureMessage: 'Registration failed'
     })
   }
 
