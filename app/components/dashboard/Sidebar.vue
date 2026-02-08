@@ -72,6 +72,8 @@
       ],
     },
   ]);
+
+  const { user } = useAuthentication()
 </script>
 
 <template>
@@ -80,16 +82,18 @@
     resizable
     :ui="{ footer: 'border-t border-default' }"
   >
-  <!-- eslint-disable vue/no-useless-template-attributes -->
+    <!-- eslint-disable vue/no-useless-template-attributes -->
     <template
       #header="{ collapsed }"
       class="flex items-center gap-2"
     >
       <UDashboardSidebarCollapse variant="subtle" />
-      <IconsNuxtui
+      <NuxtLink
         v-if="!collapsed"
-        class="h-6 w-auto"
-      />
+        to="/"
+      >
+        <IconsNuxtui class="h-6 w-auto" />
+      </NuxtLink>
     </template>
 
     <template #default="{ collapsed }">
@@ -143,7 +147,7 @@
         :avatar="{
           src: 'https://github.com/benjamincanac.png',
         }"
-        :label="collapsed ? undefined : 'Benjamin'"
+        :label="collapsed ? undefined : user?.name"
         color="neutral"
         variant="ghost"
         class="w-full"

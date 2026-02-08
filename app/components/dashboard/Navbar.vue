@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  const { logout } = useAuthentication()
+
   const breadcrumbItems = [
     {
       label: 'Dashboard',
@@ -27,8 +29,8 @@
       {
         label: 'Log out',
         icon: 'i-lucide-log-out',
-        click: () => {
-          console.warn('Logout clicked');
+        onSelect: async () => {
+          await logout();
         },
       },
     ],
