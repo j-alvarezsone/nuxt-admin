@@ -4,6 +4,7 @@
 
   const UBadge = resolveComponent('UBadge');
   const NuxtImg = resolveComponent('NuxtImg');
+  const NuxtLink = resolveComponent('NuxtLink')
 
   const { products, perPage, total } = await usePaginatedProducts()
 
@@ -34,7 +35,15 @@
     {
       accessorKey: 'name',
       header: 'Name',
-      cell: ({ row }) => row.getValue('name'),
+      cell: ({ row }) => {
+        const productName = row.getValue('name');
+        const productId = row.getValue('id');
+
+        return h(NuxtLink, {
+          to: `/dashboard/product/${productId}`,
+          class: 'text-blue-500 hover:text-blue-700 hover:underline underline-offset-2 cursor-pointer'
+        }, () => String(productName));
+      },
     },
     {
       accessorKey: 'description',
@@ -81,6 +90,7 @@
         </p>
       </div>
       <UButton
+        to="/dashboard/product/new"
         icon="i-lucide-plus"
         label="Add Product"
         color="primary"
